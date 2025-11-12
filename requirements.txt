@@ -1,4 +1,6 @@
 streamlit
+numpy
+imblearn
 pandas
 joblib
 wordcloud
