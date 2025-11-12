@@ -67,10 +67,15 @@ if uploaded_file is not None:
     else:
         # Preprocess text
         st.info("Preprocessing and predicting sentiments...")
-        df['clean_text'] = df['TEXT'].apply(preprocess_text)
+        df['cleaned_text'] = df['TEXT'].apply(preprocess_text)
+        df['text_length'] = df['TEXT'].apply(len)
+        df['word_count'] = df['TEXT'].apply(lambda x: len(str(x).split()))
+        df['vader_score'] = df['TEXT'].apply(lambda x: sia.polarity_scores(str(x))['compound'])
+# --- Select same features as training ---
+        X_test = df[['cleaned_text', 'text_length', 'word_count', 'vader_score']]
         
         # Predict
-        predictions = model.predict(df['TEXT'])
+        predictions = model.predict(X_test)
         df['Predicted_Sentiment'] = predictions
         
         # Show results
