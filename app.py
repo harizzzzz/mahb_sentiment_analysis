@@ -28,6 +28,8 @@ from imblearn.under_sampling import RandomUnderSampler
 nltk.download('stopwords')
 nltk.download('punkt_tab')
 nltk.download('wordnet')
+nltk.download("omw-1.4", quiet=True)
+nltk.download("vader_lexicon", quiet=True)
 from nltk.corpus import stopwords
 from nltk.stem import WordNetLemmatizer
 from nltk.tokenize import word_tokenize
