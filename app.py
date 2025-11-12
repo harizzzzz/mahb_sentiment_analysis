@@ -99,7 +99,7 @@ if uploaded_file is not None:
         sentiments = df['Predicted_Sentiment'].unique()
         
         for sentiment in sentiments:
-            text = ' '.join(df[df['Predicted_Sentiment'] == sentiment]['clean_text'])
+            text = ' '.join(df[df['Predicted_Sentiment'] == sentiment]['cleaned_text'])
             if text.strip() == "":
                 continue
             
