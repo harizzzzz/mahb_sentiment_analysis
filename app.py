@@ -35,6 +35,7 @@ from nltk.tokenize import word_tokenize
 # Preprocessing function
 stop_words = set(stopwords.words('english'))
 lemmatizer = WordNetLemmatizer()
+sia= SentimentIntensityAnalyzer()
 
 def preprocess_text(text):
     text = str(text).lower()
