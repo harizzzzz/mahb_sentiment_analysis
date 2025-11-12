@@ -1,23 +1,12 @@
-#import all related libraries
 import streamlit as st
 import pandas as pd
-import numpy as np
+import joblib
+from wordcloud import WordCloud
+import matplotlib.pyplot as plt
 import nltk
-from nltk.corpus import stopwords #remove stopwords
-from nltk.stem import WordNetLemmatizer #to format word back to root word
-from nltk.sentiment import SentimentIntensityAnalyzer #to help score the sentiment of text
+import re
 
-from sklearn.model_selection import train_test_split,GridSearchCV,StratifiedKFold
-from sklearn.feature_extraction.text import TfidfVectorizer
-from sklearn.preprocessing import StandardScaler
-from sklearn.compose import ColumnTransformer
-from sklearn.svm import SVC
-from sklearn.metrics import accuracy_score,confusion_matrix,classification_report
-from sklearn.pipeline import Pipeline
 
-from imblearn.pipeline import Pipeline as ImbPipeline
-from imblearn.over_sampling import SMOTE,RandomOverSampler
-from imblearn.under_sampling import RandomUnderSampler
 
 # Download NLTK resources
 nltk.download('stopwords')
